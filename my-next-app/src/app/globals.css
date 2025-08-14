@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "../styles/utilities.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: oklch(0.55 0.22 265); /* Indigo */
+  --color-secondary: oklch(0.74 0.17 160); /* Teal */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cross-browser nav color enforcement (helps with Vivaldi/extension tinting) */
+html:not(.dark) .force-nav-white {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+html:not(.dark) .force-nav-white .nav-icon {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+html.dark .force-nav-white {
+  background-color: #0f0f10 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+html.dark .force-nav-white .nav-icon {
+  background-color: #0c0c0d !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Force card surfaces (light/dark) to avoid browser tinting */
+.force-card {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+.dark .force-card {
+  background-color: #0f0f10 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}

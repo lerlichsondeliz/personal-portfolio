@@ -1,0 +1,33 @@
+[
+  {
+    "school": "Ithaca College",
+    "degree": "Bachelor of Arts, Computer Science",
+    "dates": "Aug 2022 - May 2025",
+    "description": "Graduated college in 3 years with a focus on website development, machine learning, and databases.",
+    "highlights": [
+      "Coursework: Website Development, Machine Learning, Databases"
+    ],
+    "location": "Ithaca, NY"
+  },
+  {
+    "school": "IES Tokyo Summer",
+    "degree": "Language Intensive Program",
+    "dates": "May 2024 - Jul 2024",
+    "description": "Studied abroad in Japan during a summer language intensive program.",
+    "highlights": [
+      "Coursework: Beginner Japanese language and culture",
+      "Immersive cultural experiences in Tokyo"
+    ],
+    "location": "Tokyo, Japan"
+  },
+  {
+    "school": "Bard High School Early College",
+    "degree": "Associate's Degree, Liberal Arts",
+    "dates": "Sep 2018 - Jul 2022",
+    "description": "Graduated high school with an Associate's Degree.",
+    "highlights": [
+      "Completed college-level coursework while in high school"
+    ],
+    "location": "New York, NY"
+  }
+]

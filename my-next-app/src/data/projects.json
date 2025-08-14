@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "college-thrift",
+    "title": "College Thrift",
+    "description": "E-commerce platform for college students to list and sell items to each other.",
+    "techStack": ["Python", "JavaScript", "SQL", "AWS", "Flask"],
+    "githubLink": "https://github.com/your-username/college-thrift",
+    "images": [
+      "/images/CollegeThrift.png",
+      "/images/screenshot-2025-08-11-062230.png"
+    ],
+    "details": "Full-stack marketplace with listing creation, image uploads, search, and checkout flow.",
+    "highlights": [
+      "Image processing and S3 storage",
+      "Secure auth and role-based access",
+      "Server-rendered pages with dynamic filters"
+    ]
+  },
+  {
+    "slug": "area-development-segmentation",
+    "title": "Finding Area Development Through Segmentation",
+    "description": "Used Meta's Segment Anything Model and multiple ML models to analyze satellite imagery, tracking building development and quantifying natural land loss in the U.S.",
+    "techStack": ["Python", "Machine Learning", "Meta Segment Anything Model"],
+    "githubLink": "https://github.com/your-username/area-development-segmentation",
+    "images": [
+      "/images/screenshot-2025-08-11-062230.png"
+    ]
+  },
+  {
+    "slug": "nfl-first-round-super-bowls",
+    "title": "Do NFL First Round Picks Lead to Super Bowls?",
+    "description": "Created an SQL database with data from APIs and web scrapers to analyze the correlation between first round draft picks and Super Bowl wins.",
+    "techStack": ["SQL", "Python", "Web Scraping"],
+    "githubLink": "https://github.com/your-username/nfl-first-round-analysis",
+    "images": [
+      "/images/NFL-Poster.png"
+    ],
+    "preferredImageFit": "contain",
+    "details": "Exploratory data analysis on draft capital vs championship outcomes, including dashboards and year-by-year trends.",
+    "highlights": [
+      "Data ingestion from multiple sources (APIs + scraping)",
+      "SQL modeling for franchise-level comparisons",
+      "Interactive charts exported for presentation"
+    ]
+  }
+]

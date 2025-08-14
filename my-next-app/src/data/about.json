@@ -1,0 +1,29 @@
+{
+  "name": "Lukas Erlichson-Deliz",
+  "degree": "B.A. in Computer Science",
+  "location": "Keene, New Hampshire",
+  "summary": "Recent Computer Science graduate passionate about full‑stack web development, performance, and clean design. Focused on TypeScript, Next.js, and cloud‑native tooling.",
+  "skills": [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Tailwind CSS",
+    "Python",
+    "Java",
+    "C#",
+    "SQL",
+    "MySQL",
+    "MongoDB",
+    "Git/GitHub",
+    "CI/CD"
+  ],
+  "socials": {
+    "github": "https://github.com/your-username",
+    "linkedin": "https://www.linkedin.com/in/lukas-erlichson-deliz/",
+    "email": "lukasdeliz@gmail.com",
+    "youtube": "https://www.youtube.com/@lukasdeliz"
+  }
+}
+
+

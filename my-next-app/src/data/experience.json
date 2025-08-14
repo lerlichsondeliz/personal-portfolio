@@ -1,0 +1,33 @@
+[
+  {
+    "role": "Service Team Member",
+    "company": "Panera Bread",
+    "startDate": "Aug 2023",
+    "endDate": "Present",
+    "description": [
+      "Provided exceptional customer service as cashier and food preparer, ensuring an efficient and welcoming environment.",
+      "Assisted with restocking, inventory, and maintaining cleanliness to support smooth store operations."
+    ]
+  },
+  {
+    "role": "SYEP Camp Counselor",
+    "company": "Inwood Community Services",
+    "startDate": "Jul 2023",
+    "endDate": "Aug 2023",
+    "description": [
+      "Supervised and led engaging activities for children in grades K–5, maintaining a safe and inclusive environment.",
+      "Organized and taught beginner chess lessons twice a week, fostering critical thinking skills in students."
+    ]
+  },
+  {
+    "role": "Programming Intern",
+    "company": "Arkadian Cyber Security",
+    "startDate": "Jun 2023",
+    "endDate": "Aug 2023",
+    "description": [
+      "Acquired foundational cybersecurity skills to diagnose and address client network issues.",
+      "Developed a KPI tracking system to forecast business projections and monitor performance metrics.",
+      "Applied programming skills to enhance software solutions with scalable and testable code practices."
+    ]
+  }
+]
