@@ -18,13 +18,26 @@ Every common edit is a data change, not a component change. Content lives in `sr
     'What you found',
   ],
   artifact: {
-    type: 'image',                       // 'image' | 'pdf' | 'link'
+    type: 'image',                       // 'image' | 'pdf' | 'link' | 'slides'
     src: '/assets/my-project.png',       // for pdf/link: the href
-    alt: 'Describe the image',           // image only
+    alt: 'Describe the image',           // image + slides only
     // label: 'View the paper (PDF)',    // pdf/link only: button text
   },
 },
 ```
+
+For a slide deck, use the `slides` type — it renders an in-modal slideshow with prev/next buttons and arrow-key support:
+
+```js
+artifact: {
+  type: 'slides',
+  src: '/assets/my-project-slides',      // a folder under public/assets/
+  count: 20,                             // how many slides
+  alt: 'My project slides',
+},
+```
+
+The folder must contain files named `slide-1.jpg` through `slide-<count>.jpg`. To export those from PowerPoint: File → Export → Change File Type → JPEG (or ask Claude to automate it — PowerPoint's COM interface can batch-export and rename).
 
 That's it — the card, expand/collapse, tags, and artifact rendering all come from `ProjectCard.jsx` automatically. If the artifact file is missing, the card shows a dashed placeholder box instead of a broken image.
 

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import Slideshow from './Slideshow'
 
 // Local paths like '/assets/x.png' must be served relative to the deploy base
 // (GitHub Pages hosts the site under /personal-portfolio/, not the domain root).
@@ -8,6 +9,10 @@ function resolveSrc(src) {
 
 function Artifact({ artifact }) {
   const [failed, setFailed] = useState(false)
+
+  if (artifact.type === 'slides') {
+    return <Slideshow basePath={resolveSrc(artifact.src)} count={artifact.count} alt={artifact.alt} />
+  }
 
   if (artifact.type === 'image' && !failed) {
     return (
@@ -41,17 +46,22 @@ function Artifact({ artifact }) {
 }
 
 function ProjectCard({ project }) {
-  const [expanded, setExpanded] = useState(false)
-  const panelId = `${project.slug}-panel`
+  const dialogRef = useRef(null)
+  const titleId = `${project.slug}-modal-title`
+
+  // Clicks on the dialog element itself land on the backdrop area —
+  // clicks inside the content hit the inner div instead.
+  const handleBackdropClick = (event) => {
+    if (event.target === dialogRef.current) dialogRef.current.close()
+  }
 
   return (
-    <div className="rounded-xl border border-gray-200 p-5 backdrop-blur-0 transition-[background-color,box-shadow,backdrop-filter] duration-300 hover:bg-cream/80 hover:shadow-sm hover:backdrop-blur dark:border-gray-700">
+    <>
       <button
         type="button"
-        aria-expanded={expanded}
-        aria-controls={panelId}
-        onClick={() => setExpanded((prev) => !prev)}
-        className="w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+        aria-haspopup="dialog"
+        onClick={() => dialogRef.current?.showModal()}
+        className="rounded-xl border border-gray-200 p-5 text-left backdrop-blur-0 transition-[background-color,box-shadow,backdrop-filter] duration-300 hover:bg-cream/80 hover:shadow-sm hover:backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream dark:border-gray-700"
       >
         <h3 className="text-lg font-semibold text-ink">{project.title}</h3>
         <p className="mt-1 text-gray-600 dark:text-gray-300">{project.summary}</p>
@@ -66,23 +76,58 @@ function ProjectCard({ project }) {
           ))}
         </div>
         <span className="mt-3 inline-block text-sm font-medium text-gray-400 dark:text-gray-500">
-          {expanded ? 'Hide details' : 'View details'}
+          View details
         </span>
       </button>
 
-      {expanded && (
-        <div id={panelId} className="mt-4 border-t border-gray-100 pt-4 dark:border-gray-700">
+      <dialog
+        ref={dialogRef}
+        onClick={handleBackdropClick}
+        aria-labelledby={titleId}
+        className="m-auto max-h-[85vh] w-[min(42rem,calc(100vw-2rem))] overflow-y-auto rounded-2xl bg-cream text-ink shadow-xl backdrop:bg-black/40 backdrop:backdrop-blur-sm"
+      >
+        <div className="p-6 sm:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <h3 id={titleId} className="font-display text-xl font-semibold text-ink">
+              {project.title}
+            </h3>
+            <button
+              type="button"
+              onClick={() => dialogRef.current?.close()}
+              aria-label="Close details"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink dark:hover:bg-gray-800"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-4 w-4">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+
+          <p className="mt-3 text-gray-600 dark:text-gray-300">{project.summary}</p>
+
+          <div className="mt-3 flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
           {project.highlights.length > 0 && (
-            <ul className="list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300">
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300">
               {project.highlights.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>
           )}
+
           <Artifact artifact={project.artifact} />
         </div>
-      )}
-    </div>
+      </dialog>
+    </>
   )
 }
 
