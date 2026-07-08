@@ -1,6 +1,6 @@
 export const EXPERIENCE = [
   {
-    role: 'Data & Spreadsheet Consultant',
+    role: 'Tech Consultant',
     org: 'Polaris Images',
     dates: 'Nov 2025 – Present',
     bullets: [
@@ -12,7 +12,7 @@ export const EXPERIENCE = [
   {
     role: 'STEM Ambassador',
     org: 'Ithaca College',
-    dates: 'Feb 2024 - May 2024',
+    dates: 'Spring 2024',
     bullets: ['Represented the Computer Science department during tours, admissions events, and open houses',
       'Assisted prospective students and families with questions about the department and curriculum',
     ],

@@ -23,7 +23,7 @@ export const PROJECTS = [
       "Used Meta's Segment Anything Model and multiple ML models on satellite imagery to track building development and quantify natural land loss in the U.S.",
     tech: ['Python', 'Machine learning', 'Meta Segment Anything Model'],
     highlights: [
-      'Explored areas around Fortworth Texas and Houston Texas to find development patterns',
+      'Explored areas around Fort Worth Texas and Houston Texas to find development patterns',
       'Multiple ML models used to segment buildings and quantify land loss all with their own challenges and tradeoffs',
       'Discovered multiple areas of development destroying natural land over just 7 years.',
     ],
@@ -37,7 +37,7 @@ export const PROJECTS = [
   {
     slug: 'ai-chess-engines',
     title: 'AI-Driven Chess Engines',
-    summary: "Research paper on the evolution of chess engines, from early rule-based systems to modern neural network-based engines, and their impact on chess strategy and AI development.",
+    summary: "Research paper on the evolution of chess engines, from early rule-based systems to modern neural network-based engines, and their impact on chess strategy and AI development. Was the Final Project for the Math and Society course at Ithaca College.",
     tech: ['Research', 'Machine learning', 'Chess engines'],
     highlights: [],
     artifact: {
