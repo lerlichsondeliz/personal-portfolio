@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm create *)",
+      "Bash(mv /c/Users/lukas/AppData/Local/Temp/claude/c--Users-lukas-Personsal-portfolio/9691cdeb-aadf-4bdd-9a91-d965584899e1/scratchpad/dot-claude-stash .claude)",
+      "Bash(mv /c/Users/lukas/AppData/Local/Temp/claude/c--Users-lukas-Personsal-portfolio/9691cdeb-aadf-4bdd-9a91-d965584899e1/scratchpad/portfolio-content.md .)",
+      "Bash(rm -f /c/Users/lukas/AppData/Local/Temp/claude/c--Users-lukas-Personsal-portfolio/9691cdeb-aadf-4bdd-9a91-d965584899e1/scratchpad/README.md)",
+      "Bash(rm -rf /c/Users/lukas/AppData/Local/Temp/claude/c--Users-lukas-Personsal-portfolio/9691cdeb-aadf-4bdd-9a91-d965584899e1/scratchpad/vite-scaffold)",
+      "Skill(run)",
+      "Skill(run:*)"
+    ]
+  }
+}

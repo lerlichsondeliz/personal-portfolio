@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./assets/fonts/fraunces-600.woff2') format('woff2');
+}
+
+@theme {
+  --color-cream: #F2F6F6;
+  --color-ink: #1C2B2E;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+}
+
+.dark {
+  --color-cream: #293d42;
+  --color-ink: #f2efea;
+  --orb-tint: #3e565c;
+}
+
+:root {
+  --nav-h: 3.75rem;
+  /* Half the rendered height of the hero's name + tagline block (desktop sizing),
+     used to offset the hero down to the viewport's true vertical center. */
+  --hero-half: 3.25rem;
+  --orb-tint: #9fb3b0;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --nav-h: 2.5rem;
+    --hero-half: 2.5rem;
+  }
+}
+
+@media (max-width: 359px) {
+  :root {
+    --nav-h: 4.5rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--drift-x, 40px), var(--drift-y, -30px), 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .orb {
+    animation: orb-drift var(--orb-duration, 16s) ease-in-out infinite alternate;
+  }
+}
+
+.dark .orb {
+  mix-blend-mode: screen;
+}
