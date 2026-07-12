@@ -7,22 +7,56 @@ function resolveSrc(src) {
   return src.startsWith('http') ? src : import.meta.env.BASE_URL + src.replace(/^\//, '')
 }
 
-function Artifact({ artifact }) {
+function ImageArtifact({ artifact }) {
   const [failed, setFailed] = useState(false)
+  const lightboxRef = useRef(null)
+  const src = resolveSrc(artifact.src)
 
+  if (failed) {
+    return (
+      <div className="mt-4 flex h-32 items-center justify-center rounded-lg border border-dashed border-gray-300 text-sm text-gray-400 dark:border-gray-600 dark:text-gray-500">
+        Artifact placeholder — add asset to /assets
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => lightboxRef.current?.showModal()}
+        aria-label={`${artifact.alt} — view full size`}
+        className="group mt-4 block w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+      >
+        <img
+          src={src}
+          alt={artifact.alt}
+          onError={() => setFailed(true)}
+          className="w-full rounded-lg border border-gray-200 transition-opacity group-hover:opacity-90 dark:border-gray-700"
+        />
+        <span className="mt-2 block text-center text-xs text-gray-400 dark:text-gray-500">
+          Click to view full size
+        </span>
+      </button>
+
+      <dialog
+        ref={lightboxRef}
+        onClick={() => lightboxRef.current?.close()}
+        className="m-auto bg-transparent backdrop:bg-black/70 backdrop:backdrop-blur-sm"
+      >
+        <img src={src} alt={artifact.alt} className="max-h-[90vh] max-w-[95vw] rounded-lg" />
+      </dialog>
+    </>
+  )
+}
+
+function Artifact({ artifact }) {
   if (artifact.type === 'slides') {
     return <Slideshow basePath={resolveSrc(artifact.src)} count={artifact.count} alt={artifact.alt} />
   }
 
-  if (artifact.type === 'image' && !failed) {
-    return (
-      <img
-        src={resolveSrc(artifact.src)}
-        alt={artifact.alt}
-        onError={() => setFailed(true)}
-        className="mt-4 w-full rounded-lg border border-gray-200 object-cover dark:border-gray-700"
-      />
-    )
+  if (artifact.type === 'image') {
+    return <ImageArtifact artifact={artifact} />
   }
 
   if (artifact.type === 'pdf' || artifact.type === 'link') {
