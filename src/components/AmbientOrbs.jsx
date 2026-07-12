@@ -1,17 +1,17 @@
 const ORBS = [
-  { id: 'about', accentColor: '#f0a868', top: '15%', left: '80%', size: 700, duration: 15, driftX: -50, driftY: 40 },
-  { id: 'projects', accentColor: '#57b1d6', top: '55%', left: '5%', size: 750, duration: 17, driftX: 45, driftY: 35 },
+  { id: 'about', accentColor: '#f0a868', top: '15%', left: '80%', size: 770, duration: 13, driftX: -50, driftY: 40 },
+  { id: 'projects', accentColor: '#57b1d6', top: '55%', left: '5%', size: 825, duration: 15, driftX: 45, driftY: 35 },
   {
     id: 'experience',
     accentColor: '#74bf63',
     top: '80%',
     left: '65%',
-    size: 670,
-    duration: 14,
+    size: 737,
+    duration: 12,
     driftX: -40,
     driftY: -50,
   },
-  { id: 'contact', accentColor: '#e37fa8', top: '35%', left: '35%', size: 650, duration: 18, driftX: 55, driftY: -30 },
+  { id: 'contact', accentColor: '#e37fa8', top: '35%', left: '35%', size: 715, duration: 16, driftX: 55, driftY: -30 },
 ]
 
 const TINT_OPACITY = 0.4
